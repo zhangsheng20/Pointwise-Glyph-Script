@@ -12,7 +12,8 @@ pw::Application clearModified
 
 set child_dirname "1000000000"
 set child_dirname [string trim $child_dirname]
-set path "C:\\Users\\Administrator\\Desktop\\iSIGHT\\outputfile\\"
+set path  {C:\Users\Administrator\Desktop\iSIGHT\outputfile}
+append path "\\"
 append path $child_dirname
 append path "\\"
 append path $child_dirname
