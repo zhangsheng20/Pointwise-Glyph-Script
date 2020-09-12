@@ -12,18 +12,21 @@ pw::Application clearModified
 
 set child_dirname "1000000000"
 set child_dirname [string trim $child_dirname]
-set path  {C:\Users\Administrator\Desktop\iSIGHT\output                }
-set path  [string trim $path]
-append path "\\"
-append path $child_dirname
-append path "\\"
-append path $child_dirname
-append path ".igs"
-puts $path
+set outputpath  {"C:\Users\Administrator\Desktop\iSIGHT\output"                          } 
+set outputpath  [string trim $outputpath]  
+set outputpath  [string trim $outputpath \"]
+append outputpath "\\"
+append outputpath $child_dirname
+append outputpath "\\"
+
+set igs_path $outputpath
+append igs_path $child_dirname
+append igs_path ".igs"
+puts $igs_path
 
 set _TMP(mode_1) [pw::Application begin DatabaseImport]
  # $_TMP(mode_1) initialize -type Automatic {C:\Users\Administrator\Desktop\iSIGHT\1\1.igs}
-  $_TMP(mode_1) initialize -type Automatic $path
+  $_TMP(mode_1) initialize -type Automatic $igs_path
   $_TMP(mode_1) setAttribute FileUnits Meters
   $_TMP(mode_1) setAttribute FileUnits Meters
   $_TMP(mode_1) read
@@ -195,17 +198,18 @@ set _DM(24) [pw::GridEntity getByName "dom-21"]
 
 
 
-set path "C:\\Users\\Administrator\\Desktop\\iSIGHT\\outputfile\\"
-append path $child_dirname
-append path "\\"
-append path $child_dirname
-append path ".dat"
-puts $path
+
+
+set dat_path $outputpath
+append dat_path $child_dirname
+append dat_path ".dat"
+puts $dat_path
+
 
 
 set _TMP(mode_3) [pw::Application begin GridExport [pw::Entity sort [list $_DM(1) $_DM(2) $_DM(3) $_DM(4) $_DM(5) $_DM(6) $_DM(7) $_DM(8) $_DM(9) $_DM(10) $_DM(11) $_DM(12) $_DM(13) $_DM(14) $_DM(15) $_DM(16) $_DM(17) $_DM(18) $_DM(19) $_DM(20) $_DM(21) $_DM(22) $_DM(23) $_DM(24)]]]
   #$_TMP(mode_3) initialize -type GridPro {C:/Users/Administrator/Desktop/pointwise/dom-1-25.dat}
-  $_TMP(mode_3) initialize -type GridPro $path
+  $_TMP(mode_3) initialize -type GridPro $dat_path
   if {![$_TMP(mode_3) verify]} {
     error "Data verification failed."
   }
