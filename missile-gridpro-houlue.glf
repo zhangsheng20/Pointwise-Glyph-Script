@@ -12,7 +12,7 @@ pw::Application clearModified
 
 set child_dirname "1000000000"
 set child_dirname [string trim $child_dirname]
-set outputpath  {"C:\Users\Administrator\Desktop\iSIGHT\output"                          } 
+set outputpath  {"C:\Users\Administrator\Desktop\iSIGHT\output"                                                           } 
 set outputpath  [string trim $outputpath]  
 set outputpath  [string trim $outputpath \"]
 append outputpath "\\"
